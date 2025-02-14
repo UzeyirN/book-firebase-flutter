@@ -1,0 +1,48 @@
+// Module-level build.gradle file
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services" // Google Services plugin əlavə edildi
+}
+
+android {
+    namespace = "com.example.firestore_db_test"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.firestore_db_test"
+        minSdk = 23
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    // Firebase BoM (Bill of Materials) əlavə edildi
+    implementation platform('com.google.firebase:firebase-bom:33.8.0')
+
+    // Buraya istədiyin Firebase SDK-ları əlavə et (məsələn, Firestore üçün)
+    implementation 'com.google.firebase:firebase-firestore'
+}
