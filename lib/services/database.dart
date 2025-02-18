@@ -9,10 +9,6 @@ class Database {
     return firestore.collection(referencePath).snapshots();
   }
 
-  String getBookFromAPI(String referencePath, String id) {
-    return firestore.collection(referencePath).doc(id).id;
-  }
-
   /// DELETE
   Future<void> deleteDocument(String collectionPath, String id) async {
     await firestore.collection(collectionPath).doc(id).delete();
@@ -26,10 +22,5 @@ class Database {
         .collection(collectionPath)
         .doc(Book.fromMap(bookAsMap).id)
         .set(bookAsMap);
-  }
-
-  Future<void> updateBookData(String collectionPath, String id,
-      Map<String, dynamic> updatedData) async {
-    await firestore.collection(collectionPath).doc(id).update(updatedData);
   }
 }

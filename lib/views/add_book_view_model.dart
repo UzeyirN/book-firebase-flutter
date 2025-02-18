@@ -19,6 +19,7 @@ class AddBookViewModel extends ChangeNotifier {
       bookName: bookName,
       authorName: authorName,
       publishDate: TimeCalculator.dateTimeToStamp(publishDate),
+      renters: [],
     );
 
     /// Ve bu kitabi DB servisi uzerinden FB-e elave edecek

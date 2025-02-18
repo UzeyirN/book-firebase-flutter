@@ -1,5 +1,6 @@
 import 'package:firestore_db_test/views/add_book_view.dart';
 import 'package:firestore_db_test/views/books_view_model.dart';
+import 'package:firestore_db_test/views/renter_list_view.dart';
 import 'package:firestore_db_test/views/update_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -162,25 +163,24 @@ class _BuildListDataState extends State<BuildListData> {
                       ),
                     ],
                   ),
-                  startActionPane: const ActionPane(
+                  startActionPane: ActionPane(
                     motion: StretchMotion(),
                     children: [
                       SlidableAction(
-                        // An action can be bigger than the others.
-                        flex: 1,
-                        onPressed: null,
-                        backgroundColor: Color(0xFF7BC043),
-                        foregroundColor: Colors.white,
-                        icon: Icons.archive,
-                        label: 'Archive',
-                      ),
-                      SlidableAction(
-                        flex: 1,
-                        onPressed: null,
+                        onPressed: (_) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RenterListView(
+                                book: list![index],
+                              ),
+                            ),
+                          );
+                        },
                         backgroundColor: Color(0xFF0392CF),
                         foregroundColor: Colors.white,
-                        icon: Icons.save,
-                        label: 'Save',
+                        icon: Icons.attach_money,
+                        label: 'Rent',
                       ),
                     ],
                   ),

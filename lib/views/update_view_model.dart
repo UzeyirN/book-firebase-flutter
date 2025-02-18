@@ -36,10 +36,11 @@ class UpdateBookViewModel extends ChangeNotifier {
       bookName: bookName,
       authorName: authorName,
       publishDate: TimeCalculator.dateTimeToStamp(publishDate),
+      renters: book.renters,
     );
 
     /// Ve bu kitabi DB servisi uzerinden FB-e elave edecek
-    database.setBookData(
+    await database.setBookData(
         collectionPath: collectionPath, bookAsMap: updatedBook.toMap());
   }
 }

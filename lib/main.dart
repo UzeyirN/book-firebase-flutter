@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //FirebaseStorage.instance.useStorageEmulator('10.0.2.2', 9199);
   //await Firebase.initializeApp();
 
   runApp(MyApp());
